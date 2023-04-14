@@ -1,3 +1,13 @@
+fetch('data.json')
+  .then(response => response.json())
+  .then(data => {
+    // hacemos algo con los datos cargados, por ejemplo:
+    const products = data;
+    console.log(products);
+  })
+  .catch(error => console.error(error));
+
+
 // objeto que almacena los productos y sus detalles
 const products = {
   "product-1": {
