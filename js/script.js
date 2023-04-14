@@ -39,7 +39,7 @@ document
           quantity: quantity,
         });
       } else if (productId.startsWith("product-") && productQuantity.value < 0) {
-        invoice.remove();
+        invoice.remove(); 
         Swal.fire({
           title: 'ATENCIÓN',
           text: 'Los números negativos no son un caracter valido.',
@@ -85,8 +85,7 @@ function showInvoice(items) {
   <td>${item.quantity.toLocaleString()}</td>
   <td>${item.price.toLocaleString()}</td>
   <td>${itemTotal.toLocaleString()}</td>
-  <td><button id="${itemId}" onclick="deleteProduct('${itemId}')" class="btn btn-danger btn-sm">Eliminar</button></td>
-`;
+  <td><button id="${itemId}" onclick="deleteProduct('${itemId}')" class="btn btn-danger btn-sm">Eliminar</button></td>`;
 
     invoiceBody.appendChild(row);
     itemIndex++; // aumentar el contador de items
@@ -140,3 +139,26 @@ function getInvoices() {
     return [];
   }
 }
+
+btnPay.onclick = ()=>{
+  Toastify({
+    text:'¡Gracias por tu compra!',
+    duration: 7000,
+    gravity:'bottom',
+    position:'left',
+    style:{
+      color:'white',
+      width: '500px',
+      height: '100px',
+      background:'linear-gradient(0deg, rgba(174,34,195,1) 0%, rgba(91,145,166,1) 100%)',
+    },
+
+
+  }
+
+  ) .showToast()
+
+  invoice.remove();
+}
+
+
